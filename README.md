@@ -3,9 +3,10 @@ Your project's description...
 
 ## Environments
 - Preview: https://main--aem--xdmr.aem.page/
-- https://main--{repo}--{owner}.aem.page/
+main--{repo}--{owner}.aem.page
+
 - Live: https://main--aem--xdmr.aem.live/
-- https://main--{repo}--{owner}.aem.live/
+main--{repo}--{owner}.aem.live
 
 ## Documentation
 
