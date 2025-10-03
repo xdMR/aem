@@ -1,9 +1,12 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--green);
   width: 100%;
   z-index: 2;
   position: fixed;
+}
+header .nav-wrapper p{
+  color:rgb(239, 238, 238);
 }
 
 header nav {
@@ -207,7 +210,7 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
-    border: 2px solid currentcolor;
+    border: 2px solid white;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
   }
