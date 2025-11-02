@@ -3,16 +3,20 @@
  * @param {Element} block The hero block element
  */
 export default function decorate(block) {
+  // Convert children to array and store initial length
+  const rows = Array.from(block.children);
+  const lastRowIndex = rows.length - 1;
+  const lastRow = rows[lastRowIndex];
+
   // Create hero container and wrapper
   const heroContainer = document.createElement('div');
   heroContainer.className = 'hero-container';
 
-  // Check for background image in the last row
-  const rows = [...block.children];
-  const lastRow = rows[rows.length - 1];
+  // Handle background image
   if (lastRow?.querySelector('img')) {
     const img = lastRow.querySelector('img');
-    heroContainer.style.backgroundImage = `url(${img.src})`;
+    const imgUrl = img.src;
+    heroContainer.style.backgroundImage = `url(${imgUrl})`;
     heroContainer.style.backgroundSize = 'cover';
     heroContainer.style.backgroundPosition = 'center';
     lastRow.remove();
@@ -29,18 +33,20 @@ export default function decorate(block) {
   const content = document.createElement('div');
   content.className = 'hero-content';
 
-  // First row is headline
-  if (rows[0]) {
+  // Handle headline
+  const headlineText = rows[0]?.textContent || '';
+  if (headlineText) {
     const h1 = document.createElement('h1');
-    h1.textContent = rows[0].textContent;
+    h1.textContent = headlineText;
     content.appendChild(h1);
     rows[0].remove();
   }
 
-  // Second row is description
-  if (rows[1]) {
+  // Handle description
+  const descriptionText = rows[1]?.textContent || '';
+  if (descriptionText) {
     const p = document.createElement('p');
-    p.textContent = rows[1].textContent;
+    p.textContent = descriptionText;
     content.appendChild(p);
     rows[1].remove();
   }
@@ -67,18 +73,11 @@ export default function decorate(block) {
   heroWrapper.appendChild(heroCard);
   heroContainer.appendChild(heroWrapper);
 
-  // Replace block content with new structure
-  block.textContent = '';
+  // Clear and update block content
+  block.innerHTML = '';
   block.appendChild(heroContainer);
 
-  // Add button click handlers
-  primaryBtn.addEventListener('click', () => {
-    // Add your primary button action here
-    console.log('Primary button clicked');
-  });
-
-  secondaryBtn.addEventListener('click', () => {
-    // Add your secondary button action here
-    console.log('Secondary button clicked');
-  });
+  // Add button click handlers - using empty functions to satisfy lint
+  primaryBtn.addEventListener('click', () => {});
+  secondaryBtn.addEventListener('click', () => {});
 }

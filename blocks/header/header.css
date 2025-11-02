@@ -1,13 +1,18 @@
 /* header and nav layout */
+header nav p {
+  margin: 0;
+  line-height: 1;
+}
+
 header .nav-wrapper {
-  background-color: var(--green);
+  background-color: rgb(0 128 0);
   width: 100%;
   z-index: 2;
   position: fixed;
 }
 
-header .nav-wrapper p{
-  color:rgb(239, 238, 238);
+header .nav-wrapper p {
+  color: rgb(239 238 238);
 }
 
 header nav {
@@ -49,10 +54,6 @@ header nav[aria-expanded='true'] {
   }
 }
 
-header nav p {
-  margin: 0;
-  line-height: 1;
-}
 
 header nav a:any-link {
   color: currentcolor;
