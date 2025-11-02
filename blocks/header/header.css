@@ -5,6 +5,7 @@ header .nav-wrapper {
   z-index: 2;
   position: fixed;
 }
+
 header .nav-wrapper p{
   color:rgb(239, 238, 238);
 }
