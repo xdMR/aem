@@ -43,7 +43,7 @@ export default function decorate(block) {
   }
 
   // Handle description
-  const descriptionText = rows[1]?.textContent || '';
+  const descriptionText = rows[1]?.textContent || 'Description';
   if (descriptionText) {
     const p = document.createElement('p');
     p.textContent = descriptionText;
