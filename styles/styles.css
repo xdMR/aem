@@ -15,7 +15,7 @@
   --background-color: rgb(243 242 238);
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: #131313;
+  --text-color: #1d1d1d;
   --link-color: #2c377f;
   --link-hover-color: #1d2556;
   --button-hover-bg: #4a932f;
@@ -23,7 +23,7 @@
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --heading-font-family: "Spectral", serif;
 
   /* body sizes */
   --body-font-size-m: 18px;

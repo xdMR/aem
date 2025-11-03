@@ -24,11 +24,16 @@ main .section.highlight.cards-container {
 
 .cards .cards-card-body {
   margin: 0px 24px 24px 24px;
+  color:#525150;
 }
 
 .cards .cards-card-image {
   line-height: 0;
-  padding: 22px 24px 24px 24px;
+  padding: 22px 24px 6px 24px;
+  font-weight: 300;
+}
+.cards li:hover{
+      box-shadow: 0 .25rem .5rem #00000023;
 }
 
 .cards > ul > li img {
@@ -37,3 +42,9 @@ main .section.highlight.cards-container {
   object-fit: cover;
   border-radius: 18px;
 }
+ .cards .cards-card-body strong{
+    font-size:24px;
+    font-family: "Spectral", serif;
+    font-weight: 200;
+
+ }

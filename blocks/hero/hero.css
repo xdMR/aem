@@ -6,16 +6,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-     z-index: 1;
+    z-index: 1;
 }
-
 
 .hero-wrapper {
     max-width: 1440px;
     margin: 0 auto;
     padding: 150px 24px 130px 24px;
     position: relative;
-
 }
 
 .hero {
@@ -24,14 +22,14 @@
 
 /* White card styling */
 .hero-card {
-  background-color: #fff;
-  border-radius: 25px;
-  padding: 48px;
-  box-shadow: 0 4px 16px rgb(0 0 0 / 10%); /* Modern color notation with percentage */
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  max-width: 450px; /* Add this line */
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 48px;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 10%); /* Modern color notation with percentage */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 450px; /* Add this line */
 }
 
 .hero-content {
@@ -46,6 +44,9 @@
     font-size: var(--heading-font-size-xl);
     line-height: 1.2;
     max-width: 100%;
+    font-family: "Spectral", serif;
+    font-weight: 200;
+    font-style: italic;
 }
 
 .hero-content p {
@@ -57,9 +58,9 @@
 
 /* Button styling */
 .hero-buttons {
-  display: flex;
-  flex-flow: row wrap; /* Combined shorthand property */
-  gap: 16px;
+    display: flex;
+    flex-flow: row wrap; /* Combined shorthand property */
+    gap: 16px;
 }
 
 .hero-buttons .button-primary {
@@ -95,7 +96,6 @@
 
 /* Responsive adjustments */
 @media (width < 900px) {
-
     .hero-card {
         padding: 32px 24px;
     }
@@ -108,12 +108,10 @@
         flex-direction: column;
     }
 
-
-.hero-wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 50px 5px 30px 5px;
-    position: relative;
-}
-
+    .hero-wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 50px 5px 30px 5px;
+        position: relative;
+    }
 }
