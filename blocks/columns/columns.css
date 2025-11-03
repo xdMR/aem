@@ -31,3 +31,10 @@
     order: unset;
   }
 }
+
+.columns-2-cols > div > div {
+  flex-basis:40%;
+}
+.columns-2-cols .columns-img-col {
+  flex-basis:60%;
+}
