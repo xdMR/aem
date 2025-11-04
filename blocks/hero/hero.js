@@ -32,23 +32,49 @@ export default function decorate(block) {
   const content = document.createElement('div');
   content.className = 'hero-content';
 
-  // Handle headline - get text from first div inside the row
-  const headlineText = rows[0]?.querySelector('div')?.textContent || '';
-  if (headlineText) {
+  // Handle headline - get H1 from first row or find it in the row
+  const h1Element = rows[0]?.querySelector('h1');
+  if (h1Element) {
+    // Extract the H1 element and its text
     const h1 = document.createElement('h1');
-    h1.textContent = headlineText;
+    h1.textContent = h1Element.textContent;
     content.appendChild(h1);
-    rows[0].remove();
+  } else {
+    // Fallback: get text from first div inside the row
+    const headlineText = rows[0]?.querySelector('div')?.textContent || '';
+    if (headlineText) {
+      const h1 = document.createElement('h1');
+      h1.textContent = headlineText;
+      content.appendChild(h1);
+    }
   }
+  // Remove the H1 row after processing
+  if (rows[0]) rows[0].remove();
 
-  // Handle description - get text from first div inside the row
-  const descriptionText = rows[1]?.querySelector('div')?.textContent || '';
-  console.log('Description text:', descriptionText);
-  if (descriptionText.trim()) {
-    const h3 = document.createElement('h3');
-    h3.textContent = descriptionText;
-    content.appendChild(h3);
-    rows[1].remove();
+  // Handle description - look for paragraph element in the remaining rows
+  let descriptionFound = false;
+  for (let i = 0; i < rows.length; i++) {
+    const p = rows[i]?.querySelector('p');
+    if (p && p.textContent.trim()) {
+      // Found a paragraph - use it as description
+      const description = document.createElement('p');
+      description.textContent = p.textContent.trim();
+      content.appendChild(description);
+      rows[i].remove();
+      descriptionFound = true;
+      break;
+    }
+  }
+  
+  // Fallback: if no paragraph found, try getting text from first remaining row
+  if (!descriptionFound && rows[0]) {
+    const descriptionText = rows[0]?.querySelector('div')?.textContent || '';
+    if (descriptionText.trim()) {
+      const p = document.createElement('p');
+      p.textContent = descriptionText.trim();
+      content.appendChild(p);
+      rows[0].remove();
+    }
   }
 
   // Create buttons container

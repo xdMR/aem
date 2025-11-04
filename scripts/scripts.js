@@ -23,7 +23,20 @@ function buildHeroBlock(main) {
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    // Find the paragraph that comes after the H1
+    let description = null;
+    let nextElement = h1.nextElementSibling;
+    while (nextElement && !description) {
+      if (nextElement.tagName === 'P' && nextElement.textContent.trim()) {
+        description = nextElement;
+      }
+      nextElement = nextElement.nextElementSibling;
+    }
+    const heroElems = [picture, h1];
+    if (description) {
+      heroElems.push(description);
+    }
+    section.append(buildBlock('hero', { elems: heroElems }));
     main.prepend(section);
   }
 }
