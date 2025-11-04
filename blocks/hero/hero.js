@@ -1,3 +1,5 @@
+import createConfetti from './confetti.js';
+
 /**
  * Decorates the hero block
  * @param {Element} block The hero block element
@@ -132,6 +134,8 @@ export default function decorate(block) {
   block.appendChild(heroContainer);
 
   // Add button click handlers
-  primaryBtn.addEventListener('click', () => {});
+  primaryBtn.addEventListener('click', () => {
+    createConfetti(primaryBtn);
+  });
   secondaryBtn.addEventListener('click', () => {});
 }
